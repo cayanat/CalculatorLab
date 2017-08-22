@@ -18,6 +18,7 @@ namespace CPE200Lab1
         private bool isAfterEqual;
         private string firstOperand;
         private string operate;
+        private string operateforpersent;
 
         CalculatorEngine engine;
 
@@ -86,9 +87,14 @@ namespace CPE200Lab1
                 case "÷":
                     firstOperand = lblDisplay.Text;
                     isAfterOperater = true;
+                    operateforpersent = operate;
                     break;
                 case "%":
                     // your code here
+                    lblDisplay.Text = (Convert.ToDouble(lblDisplay.Text) / 100 * Convert.ToDouble(firstOperand)).ToString();
+                    //lblDisplay.Text = lblDisplay.Text;
+                    operate = operateforpersent;
+                    isAfterOperater = true;
                     break;
             }
             isAllowBack = false;
