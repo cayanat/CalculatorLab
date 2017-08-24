@@ -85,6 +85,8 @@ namespace CPE200Lab1
                 case "-":
                 case "X":
                 case "÷":
+                case "1/x":
+                case "sqrt":
                     firstOperand = lblDisplay.Text;
                     isAfterOperater = true;
                     operateforpersent = operate;
