@@ -19,6 +19,7 @@ namespace CPE200Lab1
         private string firstOperand;
         private string operate;
         private string operateforpersent;
+        private int operateclick = 0;
 
         CalculatorEngine engine;
 
@@ -85,18 +86,18 @@ namespace CPE200Lab1
                 case "-":
                 case "X":
                 case "÷":
-                case "1/x":
-                case "sqrt":
                     firstOperand = lblDisplay.Text;
                     isAfterOperater = true;
+                    operateclick ++ ;
                     operateforpersent = operate;
                     break;
                 case "%":
                     // your code here
                     lblDisplay.Text = (Convert.ToDouble(lblDisplay.Text) / 100 * Convert.ToDouble(firstOperand)).ToString();
-                    //lblDisplay.Text = lblDisplay.Text;
                     operate = operateforpersent;
-                    isAfterOperater = true;
+                    break;
+                case "1/x":
+                case "sqrt":
                     break;
             }
             isAllowBack = false;
