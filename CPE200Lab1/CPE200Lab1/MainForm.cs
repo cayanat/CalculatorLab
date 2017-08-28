@@ -16,10 +16,11 @@ namespace CPE200Lab1
         private bool isAllowBack;
         private bool isAfterOperater;
         private bool isAfterEqual;
+        private bool isAfterM;
         private string firstOperand;
         private string operate;
         private string operateforpersent;
-        private int operateclick = 0;
+        private string memory;
 
         CalculatorEngine engine;
 
@@ -67,15 +68,20 @@ namespace CPE200Lab1
             }
             lblDisplay.Text += digit;
             isAfterOperater = false;
+            isAfterM = true;
         }
 
         private void btnOperator_Click(object sender, EventArgs e)
         {
+            switch (operate)
+            {
+            }
+
             if (lblDisplay.Text is "Error")
             {
                 return;
             }
-            if (isAfterOperater)
+            if (isAfterOperater && isAfterM)
             {
                 return;
             }
@@ -88,7 +94,6 @@ namespace CPE200Lab1
                 case "÷":
                     firstOperand = lblDisplay.Text;
                     isAfterOperater = true;
-                    operateclick ++ ;
                     operateforpersent = operate;
                     break;
                 case "%":
@@ -99,6 +104,26 @@ namespace CPE200Lab1
                 case "1/x":
                 case "sqrt":
                     break;
+                case "M+":
+                    memory = (Convert.ToDouble(memory) + Convert.ToDouble(lblDisplay.Text)).ToString();
+                    isAfterOperater = true;
+                    isAfterM = false;
+                    break;
+                case "M-":
+                    memory = (Convert.ToDouble(memory) - Convert.ToDouble(lblDisplay.Text)).ToString();
+                    isAfterOperater = true;
+                    isAfterM = false;
+                    break;
+                case "MR":
+                    lblDisplay.Text = memory;
+                    isAfterOperater = true;
+                    break;
+                case "MC":
+                    lblDisplay.Text = "0";
+                    memory = lblDisplay.Text;
+                    isAfterM = true;
+                    break;
+
             }
             isAllowBack = false;
         }
@@ -200,6 +225,11 @@ namespace CPE200Lab1
                     lblDisplay.Text = "0";
                 }
             }
+        }
+
+        private void lblDisplay_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
