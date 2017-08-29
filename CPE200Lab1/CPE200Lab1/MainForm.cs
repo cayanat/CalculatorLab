@@ -97,9 +97,6 @@ namespace CPE200Lab1
                     lblDisplay.Text = (Convert.ToDouble(lblDisplay.Text) / 100 * Convert.ToDouble(firstOperand)).ToString();
                     operate = operateforpersent;
                     break;
-                case "1/x":
-                case "sqrt":
-                    break;
                 case "M+":
                     memory = (Convert.ToDouble(memory) + Convert.ToDouble(lblDisplay.Text)).ToString();
                     isAfterOperater = true;
