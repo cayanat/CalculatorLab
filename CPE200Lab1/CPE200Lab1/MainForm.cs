@@ -73,10 +73,6 @@ namespace CPE200Lab1
 
         private void btnOperator_Click(object sender, EventArgs e)
         {
-            switch (operate)
-            {
-            }
-
             if (lblDisplay.Text is "Error")
             {
                 return;
@@ -122,6 +118,11 @@ namespace CPE200Lab1
                     lblDisplay.Text = "0";
                     memory = lblDisplay.Text;
                     isAfterM = true;
+                    break;
+                case "MS":
+                    memory = lblDisplay.Text;
+                    isAfterOperater = true;
+                    isAfterM = false;
                     break;
 
             }
